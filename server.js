@@ -18,8 +18,10 @@ app.get("/", (req, res) => {
 
 io.on("connection", (socket) => {
   console.log("a user connected");
+  socket.emit("users", [1, 2, 3, 4, 3, 78]);
+  socket.on("con", (data) => console.log(data));
 });
 
-server.listen(6000, () => {
-  console.log("listening on *:6000");
+server.listen(5500, () => {
+  console.log("listening on *:5500");
 });
